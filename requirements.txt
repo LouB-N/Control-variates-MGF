@@ -1,0 +1,5 @@
+numpy==1.26.4
+openturns==1.23
+matplotlib==3.8.4
+pandas==2.2.2
+tqdm==4.66.4
