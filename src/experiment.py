@@ -51,7 +51,6 @@ scenarios = [
 ]
 
 # Monte Carlo simulation loop
-print("Running experiment")
 for i in tqdm(range(n_exp), desc="Running experiment") :
     random.seed(i); ot.RandomGenerator.SetSeed(i); np.random.seed(i) # set random seeds
 
