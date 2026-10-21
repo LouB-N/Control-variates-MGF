@@ -105,7 +105,7 @@ plot_lim(mean_corr, std_corr, t_list,
         filename=(f"lim_corr_t_min={t_list[0]}_t_max={t_list[-1]}_n={n}_param_copula={args.param_copula}_"
         f"param_T={args.param_T}_param_S={args.param_S}_EVI={args.EVI}_EVI_diff={args.EVI_diff}_endpoint_diff={args.endpoint_diff}"),
         corr=True) # Plot 2: Mean correlation
-plot_lim_paired(mean_corr, std_corr, mean_coef, std_coef, t_list,
+plot_lim_paired(mean_corr, mean_coef, t_list,
                 filename=(f"both_lim_t_min={t_list[0]}_t_max={t_list[-1]}_n={n}_param_copula={args.param_copula}_"
                 f"param_T={args.param_T}_param_S={args.param_S}_EVI={args.EVI}_EVI_diff={args.EVI_diff}_endpoint_diff={args.endpoint_diff}"),
                 ) # Plot 3: Paired plot (correlation and optimal CV coefficient)

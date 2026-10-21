@@ -49,7 +49,7 @@ def plot_lim(mean_values, std_values, t_list, filename, corr=True):
 
 
 
-def plot_lim_paired(mean_corr, std_corr, mean_coef, std_coef, t_list, filename):
+def plot_lim_paired(mean_corr, mean_coef, t_list, filename):
     """
     Paired plot of correlation and optimal coefficient limits.
     Left: correlation for equal endpoints, with equal/unequal EVIs.
@@ -57,10 +57,8 @@ def plot_lim_paired(mean_corr, std_corr, mean_coef, std_coef, t_list, filename):
 
     Parameters
     ----------
-    mean_corr, std_corr: arrays
-        Mean and standard deviations of estimated correlation.
-    mean_coef, std_coef: arrays
-        Mean and standard deviations of estimated coefficient.
+    mean_corr, mean_corr: arrays
+        Mean estimated correlation and optimal CV coefficient.
     t_list: array
         Parameters t values.
     filename: string
@@ -74,9 +72,7 @@ def plot_lim_paired(mean_corr, std_corr, mean_coef, std_coef, t_list, filename):
     # Left panel: correlation
     for key, (label, color, linestyle) in corr_cases.items():
         m = np.asarray(mean_corr[key])
-        s = np.asarray(std_corr[key])
         axes[0].plot(t_list, m, color=color, linestyle=linestyle, label=label, linewidth=2)
-        axes[0].fill_between(t_list, m - s, m + s, color=color, alpha=0.12)
     axes[0].set_xlabel(r"$t$")
     axes[0].set_ylabel("estimated correlation")
     axes[0].set_title("Correlation")
@@ -85,9 +81,7 @@ def plot_lim_paired(mean_corr, std_corr, mean_coef, std_coef, t_list, filename):
     # Right panel: optimal coefficient
     for key, (label, color, linestyle) in coef_cases.items():
         m = np.asarray(mean_coef[key])
-        s = np.asarray(std_coef[key])
         axes[1].plot(t_list, m, color=color, linestyle=linestyle, label=label, linewidth=2)
-        axes[1].fill_between(t_list, m - s, m + s, color=color, alpha=0.1)
     axes[1].set_xlabel(r"$t$")
     axes[1].set_ylabel("estimated optimal coefficient")
     axes[1].set_title(r"Optimal coefficient $w^*(t)$")
